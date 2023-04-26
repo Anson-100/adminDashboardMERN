@@ -10,6 +10,18 @@ import generalRoutes from "./routes/general.js"
 import managementRoutes from "./routes/management.js"
 import salesRoutes from "./routes/sales.js"
 
+// data imports
+import User from "./models/User.js"
+import Product from "./models/Product.js"
+import ProductStat from "./models/ProductStat.js"
+import Transaction from "./models/Transaction.js"
+import {
+  dataProduct,
+  dataProductStat,
+  dataUser,
+  dataTransaction,
+} from "./data/index.js"
+
 // CONFIGURATION
 dotenv.config()
 const app = express()
@@ -36,5 +48,11 @@ mongoose
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`))
+
+    //only add data one time so there is no duplicate data
+    // Product.insertMany(dataProduct)
+    // ProductStat.insertMany(dataProductStat)
+    Transaction.insertMany(dataTransaction)
+    // User.insertMany(dataUser)
   })
   .catch(error => console.log(`${error} did not connect`))

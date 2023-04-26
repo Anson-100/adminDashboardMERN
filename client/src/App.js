@@ -6,6 +6,9 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 import { themeSettings } from "theme"
 import Layout from "scenes/layout"
 import Dashboard from "scenes/dashboard"
+import Products from "scenes/products"
+import Customers from "scenes/customers"
+import Transactions from "scenes/transactions"
 
 /* /* the "Layout" element contains everything for the navbar and sidebar; this element can be used on every page so the navbar appears on each one; this is a much better approach than having to copy and paste this stuff on each page */
 function App() {
@@ -20,6 +23,9 @@ function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/customers" element={<Customers />} />
+              <Route path="/transactions" element={<Transactions />} />
             </Route>
           </Routes>
         </ThemeProvider>
