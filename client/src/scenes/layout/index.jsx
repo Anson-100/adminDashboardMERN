@@ -7,7 +7,6 @@ import Sidebar from "components/Sidebar"
 import { useGetUserQuery } from "state/api"
 
 const Layout = () => {
-  // prefacing a variable with "is" indicates a boolean
   const isNonMobile = useMediaQuery("(min-width: 600px)")
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const userId = useSelector(state => state.global.userId)

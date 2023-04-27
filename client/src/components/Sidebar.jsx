@@ -31,7 +31,7 @@ import {
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import FlexBetween from "./FlexBetween"
-import profileImage from "assets/me.jpg"
+import profileImage from "assets/profile.jpeg"
 
 const navItems = [
   {
@@ -121,7 +121,7 @@ const Sidebar = ({
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
-              boxSizing: "border-box",
+              boxSixing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
             },
@@ -200,8 +200,8 @@ const Sidebar = ({
                 component="img"
                 alt="profile"
                 src={profileImage}
-                height="32px"
-                width="32px"
+                height="40px"
+                width="40px"
                 borderRadius="50%"
                 sx={{ objectFit: "cover" }}
               />

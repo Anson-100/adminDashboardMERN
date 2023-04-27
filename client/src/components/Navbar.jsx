@@ -7,20 +7,20 @@ import {
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from "@mui/icons-material"
-import FlexBetween from "./FlexBetween"
+import FlexBetween from "components/FlexBetween"
 import { useDispatch } from "react-redux"
 import { setMode } from "state"
-import profileImage from "assets/me.jpg"
+import profileImage from "assets/profile.jpeg"
 import {
   AppBar,
   Button,
   Box,
+  Typography,
   IconButton,
   InputBase,
+  Toolbar,
   Menu,
   MenuItem,
-  Toolbar,
-  Typography,
   useTheme,
 } from "@mui/material"
 
@@ -59,17 +59,18 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             </IconButton>
           </FlexBetween>
         </FlexBetween>
+
         {/* RIGHT SIDE */}
         <FlexBetween gap="1.5rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
-              <DarkModeOutlined sx={{ fontSize: "25px " }} />
+              <DarkModeOutlined sx={{ fontSize: "25px" }} />
             ) : (
               <LightModeOutlined sx={{ fontSize: "25px" }} />
             )}
           </IconButton>
           <IconButton>
-            <SettingsOutlined sx={{ fontsSize: "25px" }} />
+            <SettingsOutlined sx={{ fontSize: "25px" }} />
           </IconButton>
 
           <FlexBetween>
@@ -83,7 +84,15 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 gap: "1rem",
               }}
             >
-              {" "}
+              <Box
+                component="img"
+                alt="profile"
+                src={profileImage}
+                height="32px"
+                width="32px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
               <Box textAlign="left">
                 <Typography
                   fontWeight="bold"
@@ -98,10 +107,10 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                 >
                   {user.occupation}
                 </Typography>
-                <ArrowDropDownOutlined
-                  sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
-                />
               </Box>
+              <ArrowDropDownOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: "25px" }}
+              />
             </Button>
             <Menu
               anchorEl={anchorEl}
